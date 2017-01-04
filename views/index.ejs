@@ -10,6 +10,10 @@
 </head>
 <body>
   <h1>Convenient Currency</h1>
-  <p><%= info.base %></p>
+  <select>
+      <% for(currency in info.rates) { %>
+          <option value=<%= currency %>><%= currency %></option>
+      <% } %>
+  </select>
 </body>
 </html>
