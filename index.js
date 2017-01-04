@@ -7,20 +7,21 @@ const apiUrl = "https://api.fixer.io/latest?base=USD"
 
 const port = process.env.PORT || 8080;
 //sets EJS as the templating language
-app.set('view-engine', 'ejs');
+app.set('view engine', 'ejs');
 //allows access to the public folder from the server
 app.use('/public', express.static('public'));
 
 //sets default render route
 app.get('/', (req, res) => {
-  res.render('index');
+  let currencyData = getConversionData();
+  res.render('index', {data: currencyData});
 });
 
 //request for currency data
 function getConversionData() {
   request(apiUrl, (err, res, body) => {
     if(!err && res.statusCode == 200) {
-      console.log('status', res.statusCode);
+      console.log('fixer status', res.statusCode);
       var parsedBody = JSON.parse(body);
       return {
         "status": true,
@@ -36,4 +37,7 @@ function getConversionData() {
   });
 }
 
-getConversionData();
+//necessary for server to actually run
+app.listen(port, () => {
+  console.log('app is now listening to port', port);
+})
