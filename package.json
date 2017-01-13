@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "scss": "node-sass --output-style compressed -o public/css scss"
+    "start": "node-sass --output-style compressed -o public/css scss && node index",
   },
   "author": "Nick Kramer",
   "license": "ISC",
