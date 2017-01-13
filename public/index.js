@@ -10,15 +10,19 @@ $.ajax({
     }
 });
 
-$('#currency-input').on('input', function(event) {
-   console.log(event.originalEvent.target.value); 
-});
+$('#currency-input').on('input', conversionDomChange());
 
-$('.currency-select').on('change', function(event) {
-   console.log(event.originalEvent.target.value); 
-});
+$('.currency-select').on('change', conversionDomChange());
 
-function convertCurrency(event) {
-    var convertFrom = $("#converting-from").value;
-    var convertTo = $("#converting-to").value;
+function conversionDomChange() {
+    var convertFromRate = currencyConversions.rates[$("#converting-from").value];
+    var convertToRate = currencyConversions.rates[$("#converting-to").value];
+    var outputBox = $("#dollar-amount");
+    var originalAmount = $("#currency-input").value;
+    
+    outputBox.value = convertCurrency(originalAmount, convertFromRate, convertToRate);
+}
+
+function convertCurrency(originalAmount, convertFromRate, convertToRate) {
+    return (originalAmount * (convertToRate / convertFromRate)); 
 }
