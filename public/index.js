@@ -12,19 +12,26 @@ $.ajax({
 });
 
 function setEventHandlers (){
-  $('#currency-input').on('input', conversionDomChange());
-  $('.currency-select').on('change', conversionDomChange());  
+  $('#currency-input').on('input', conversionDomChange);
+  $('.currency-select').on('change', conversionDomChange);  
 }
 
 function conversionDomChange() {
-    var convertFromRate = currencyConversions.rates[$("#converting-from").value];
-    var convertToRate = currencyConversions.rates[$("#converting-to").value];
-    var outputBox = $("#dollar-amount");
-    var originalAmount = $("#currency-input").value;
-    
-    outputBox.value = convertCurrency(originalAmount, convertFromRate, convertToRate);
+    var convertFromRate = currencyConversions.rates[document.getElementById("converting-from").value];
+    var convertToRate = currencyConversions.rates[document.getElementById("converting-to").value];
+    var outputBox = document.getElementById("dollar-amount");
+    var originalAmount = document.getElementById("currency-input").value;
+
+    console.log("convert from", convertFromRate);
+    console.log("convert to", convertToRate);
+    console.log("original amount", originalAmount);
+
+    outputBox.innerHTML = convertCurrency(originalAmount, convertFromRate, convertToRate);
 }
 
 function convertCurrency(originalAmount, convertFromRate, convertToRate) {
-    return (originalAmount * (convertToRate / convertFromRate)); 
+    var convertedValue = originalAmount * (convertToRate / convertFromRate)
+    console.log(convertedValue);
+
+    return convertedValue;
 }
