@@ -5,6 +5,8 @@ const app = express();
 const apiUrl = "http://api.fixer.io/latest?base=USD"
 
 const port = process.env.PORT || 8080;
+
+
 //sets EJS as the templating language
 app.set('view engine', 'ejs');
 //allows access to the public folder from the server
