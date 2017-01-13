@@ -5,15 +5,16 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-  <link href="/public/reset.css" rel="stylesheet" />
-   <link href="/public/styles.css" rel="stylesheet" />
+  <link href="public/reset.css" rel="stylesheet" />
+   <link href="public/style.css" rel="stylesheet" />
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="initial-scale=1.0">
   <title>Convenient Currency</title>
 </head>
 <body>
   <h1>Convenient Currency</h1>
-  <select>
+  <input type="number" id="currency-input"></input>
+  <select id="converting-from" class="currency-select">
     <% for(currency of info) { %>
       <% if(currency == "USD") { %>
         <option value=<%= currency %> selected>
@@ -26,6 +27,26 @@
       <% } %>
     <% } %>
   </select>
+  <div class="to-currency-spacer">--></div>
+  <select id="converting-to" class="currency-select">
+    <% for(currency of info) { %>
+      <% if(currency == "USD") { %>
+        <option value=<%= currency %> selected>
+          <%= currency %>
+        </option>
+      <% } else { %>
+        <option value=<%= currency %>>
+          <%= currency %>
+        </option>
+      <% } %>
+    <% } %>
+  </select>
+  
+  <div id="output-box">
+    <p id="conversion-output">
+      $<span id="dollar-amount"></span>
+    </p>
+  </div>
   
   <script src="public/index.js"></script>
 </body>
