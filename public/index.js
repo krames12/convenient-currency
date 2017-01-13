@@ -7,12 +7,14 @@ $.ajax({
         console.log("data", data);
         currencyConversions = data //JSON.parse(data);
         currencyConversions.rates.EUR = 1;
+        setEventHandlers();
     }
 });
 
-$('#currency-input').on('input', conversionDomChange());
-
-$('.currency-select').on('change', conversionDomChange());
+function setEventHandlers (){
+  $('#currency-input').on('input', conversionDomChange());
+  $('.currency-select').on('change', conversionDomChange());  
+}
 
 function conversionDomChange() {
     var convertFromRate = currencyConversions.rates[$("#converting-from").value];
