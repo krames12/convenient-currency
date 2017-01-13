@@ -31,7 +31,6 @@ function conversionDomChange() {
 
 function convertCurrency(originalAmount, convertFromRate, convertToRate) {
     var convertedValue = originalAmount * (convertToRate / convertFromRate)
-    console.log(convertedValue);
 
-    return convertedValue;
+    return convertedValue.toFixed(2);
 }
