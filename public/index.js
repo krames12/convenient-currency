@@ -26,7 +26,7 @@ function conversionDomChange() {
     console.log("convert to", convertToRate);
     console.log("original amount", originalAmount);
 
-    outputBox.innerHTML = convertCurrency(originalAmount, convertFromRate, convertToRate);
+    outputBox.value = convertCurrency(originalAmount, convertFromRate, convertToRate);
 }
 
 function convertCurrency(originalAmount, convertFromRate, convertToRate) {

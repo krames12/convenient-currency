@@ -13,37 +13,41 @@
 </head>
 <body>
   <h1>Convenient Currency</h1>
-  <input type="number" id="currency-input"></input>
-  <select id="converting-from" class="currency-select">
-    <% for(currency of info) { %>
-      <% if(currency == "USD") { %>
-        <option value=<%= currency %> selected>
-          <%= currency %>
-        </option>
-      <% } else { %>
-        <option value=<%= currency %>>
-          <%= currency %>
-        </option>
-      <% } %>
-    <% } %>
-  </select>
-  <div class="to-currency-spacer">--></div>
-  <select id="converting-to" class="currency-select">
-    <% for(currency of info) { %>
-      <% if(currency == "USD") { %>
-        <option value=<%= currency %> selected>
-          <%= currency %>
-        </option>
-      <% } else { %>
-        <option value=<%= currency %>>
-          <%= currency %>
-        </option>
-      <% } %>
-    <% } %>
-  </select>
   
-  <div id="output-box">
-    <p id="dollar-amount">0.00</p>
+  <div class="change-conatiner">
+    <input type="number" id="currency-input" placeholder="0.00" min=0></input>
+    <select id="converting-from" class="currency-select">
+      <% for(currency of info) { %>
+        <% if(currency == "USD") { %>
+          <option value=<%= currency %> selected>
+            <%= currency %>
+          </option>
+        <% } else { %>
+          <option value=<%= currency %>>
+            <%= currency %>
+          </option>
+        <% } %>
+      <% } %>
+    </select>
+  </div>
+  
+  <div class="to-currency-spacer">--></div>
+  
+  <div class="change-container">
+    <input id="dollar-amount" disabled></input>
+    <select id="converting-to" class="currency-select">
+      <% for(currency of info) { %>
+        <% if(currency == "USD") { %>
+          <option value=<%= currency %> selected>
+            <%= currency %>
+          </option>
+        <% } else { %>
+          <option value=<%= currency %>>
+            <%= currency %>
+          </option>
+        <% } %>
+      <% } %>
+    </select>
   </div>
   
   <script src="public/index.js"></script>
