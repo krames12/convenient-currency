@@ -1,3 +1,35 @@
-.to-currency-spacer {
-  display: inline-block;
+body {
+    box-sizing: border-box;
+}
+.site-wrapper {
+    min-width: 320px;
+    width: 50%;
+    margin: 15% auto;
+    h1 {
+        text-align: center;
+    }
+    .change-container {
+        margin: 5px auto;
+        text-align: center;
+        .num-input {
+            font-size: 1.3em;
+            width: 150px;
+            height: 30px;
+            padding: 0 5px;
+            margin-right: 0;
+            border: 1px solid grey;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        select {
+            width: 75px;
+            height: 32px;
+            font-size: 1.3em;
+            margin-left: -5px;
+            padding: 0 1px;
+            border: 1px solid grey;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
 }

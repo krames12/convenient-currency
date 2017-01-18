@@ -12,10 +12,10 @@
   <title>Convenient Currency</title>
 </head>
 <body>
-  <h1>Convenient Currency</h1>
-  
-  <div class="change-conatiner">
-    <input type="number" id="currency-input" placeholder="0.00" min=0></input>
+<div class="site-wrapper">
+  <h1>Currency Conversion</h1>
+  <div class="change-container">
+    <input type="number" id="currency-input" class="num-input" placeholder="0.00" min='0' />
     <select id="converting-from" class="currency-select">
       <% for(currency of info) { %>
         <% if(currency == "USD") { %>
@@ -34,10 +34,10 @@
   <div class="to-currency-spacer">--></div>
   
   <div class="change-container">
-    <input id="dollar-amount" disabled></input>
+    <input type="text" id="dollar-amount" class="num-input" disabled />
     <select id="converting-to" class="currency-select">
       <% for(currency of info) { %>
-        <% if(currency == "USD") { %>
+        <% if(currency == "GBP") { %>
           <option value=<%= currency %> selected>
             <%= currency %>
           </option>
@@ -49,7 +49,7 @@
       <% } %>
     </select>
   </div>
-  
-  <script src="public/index.js"></script>
+</div>
+<script src="public/index.js"></script>
 </body>
 </html>
