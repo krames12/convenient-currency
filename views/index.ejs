@@ -13,42 +13,44 @@
 </head>
 <body>
 <div class="site-wrapper">
-  <h1>Currency Conversion</h1>
-  <div class="change-container">
-    <input type="number" id="currency-input" class="num-input" placeholder="0.00" min='0' />
-    <select id="converting-from" class="currency-select">
-      <% for(currency of info) { %>
-        <% if(currency == "USD") { %>
-          <option value=<%= currency %> selected>
-            <%= currency %>
-          </option>
-        <% } else { %>
-          <option value=<%= currency %>>
-            <%= currency %>
-          </option>
+    <h1>Currency Conversion</h1>
+    <div class="change-container">
+      <input type="number" id="currency-input" class="num-input" placeholder="0.00" min='0' />
+      <select id="converting-from" class="currency-select">
+        <% for(currency of info) { %>
+          <% if(currency == "USD") { %>
+            <option value=<%= currency %> selected>
+              <%= currency %>
+            </option>
+          <% } else { %>
+            <option value=<%= currency %>>
+              <%= currency %>
+            </option>
+          <% } %>
         <% } %>
-      <% } %>
-    </select>
-  </div>
-  
-  <div class="to-currency-spacer">--></div>
-  
-  <div class="change-container">
-    <input type="text" id="dollar-amount" class="num-input" disabled />
-    <select id="converting-to" class="currency-select">
-      <% for(currency of info) { %>
-        <% if(currency == "GBP") { %>
-          <option value=<%= currency %> selected>
-            <%= currency %>
-          </option>
-        <% } else { %>
-          <option value=<%= currency %>>
-            <%= currency %>
-          </option>
+      </select>
+    </div>
+    
+    <div class="change-container">
+      <input type="text" id="dollar-amount" class="num-input" disabled />
+      <select id="converting-to" class="currency-select">
+        <% for(currency of info) { %>
+          <% if(currency == "GBP") { %>
+            <option value=<%= currency %> selected>
+              <%= currency %>
+            </option>
+          <% } else { %>
+            <option value=<%= currency %>>
+              <%= currency %>
+            </option>
+          <% } %>
         <% } %>
-      <% } %>
-    </select>
-  </div>
+      </select>
+    </div>
+    <footer>
+      <p>Exchange data from the European Central Bank via <a href="http://fixer.io/">Fixer.io</a></p>
+      <p>Project on <a href="https://github.com/krames12/convenient-currency">Github</a></p>
+    </footer>
 </div>
 <script src="public/index.js"></script>
 </body>
